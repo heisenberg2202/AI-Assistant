@@ -114,6 +114,10 @@ if __name__== "__main__":
                 speak("Sorry!, I am not able to send this email at this moment")
 
 
+        elif 'exit' in query:
+             exit()       
+
+
 
 
 
