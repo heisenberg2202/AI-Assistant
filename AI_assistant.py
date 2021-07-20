@@ -4,7 +4,7 @@ import speech_recognition as sr
 import wikipedia
 import webbrowser
 import os   
-
+import smtplib
 
 engine = pyttsx3.init('sapi5') 
 voices = engine.getProperty('voices')
@@ -51,6 +51,17 @@ def takeCommand():
     return query
 
 
+
+def sendEmail(to, content):
+    server = smtplib.SMTP('smtp.gmail.com',587)
+    server.ehlo()
+    server.starttls()
+    server.login('slimshady.alpha22@gmail.com','email_password')
+    server.sendmail('slimshady.alpha@gmail.com',to,content)
+    server.close()
+
+
+
 if __name__== "__main__":
     wishMe()
     while True:       
@@ -84,6 +95,28 @@ if __name__== "__main__":
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime('%H:%M:%S')   
             speak(f"The time is {strTime}")
+
+
+        elif 'open code' in query:
+             codePath = "C:\\Users\\Asus\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe" 
+             os.startfile(codePath)
+
+        elif 'send email' in query:
+            try:
+                speak("What should I send to Ayush")
+                content = takeCommand()
+                to = 'ayushunplugged22@gmail.com';
+                sendEmail(to,content)
+                speak('Email has been sent!')
+
+            except Exception as e:
+                print(e)
+                speak("Sorry!, I am not able to send this email at this moment")
+
+
+
+
+
 
 
 
