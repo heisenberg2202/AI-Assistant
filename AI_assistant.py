@@ -3,7 +3,7 @@ import datetime
 import speech_recognition as sr
 import wikipedia
 import webbrowser
-
+import os   
 
 
 engine = pyttsx3.init('sapi5') 
@@ -72,7 +72,14 @@ if __name__== "__main__":
         elif 'open google' in query:
             webbrowser.open("google.com")
 
-            elif 'open stackoverflow' in query:
+        elif 'open stackoverflow' in query:
             webbrowser.open("stackoverflow.com")
+
+        elif 'play music'in query:
+            music_dir = 'F:\\Audio\\Lover'
+            songs = os.listdir(music_dir)
+            print(songs)
+            os.startfile(os.path.join(music_dir, songs[0]))
+            
 
 
