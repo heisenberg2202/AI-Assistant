@@ -5,6 +5,9 @@ import wikipedia
 import webbrowser
 import os   
 import smtplib
+import pyjokes
+from ecapture import ecapture as ec
+
 
 engine = pyttsx3.init('sapi5') 
 voices = engine.getProperty('voices')
@@ -112,6 +115,20 @@ if __name__== "__main__":
             except Exception as e:
                 print(e)
                 speak("Sorry!, I am not able to send this email at this moment")
+                              
+        elif 'joke' in query:
+            speak(pyjokes.get_joke())
+
+
+        elif "who are you" in query:
+            speak("I am your virtual assistant created by Ayush Narayan") 
+
+        elif "camera" in query or "take a photo" in query:
+            ec.capture(0, "Jarvis Camera ", "img.jpg") 
+
+
+        elif "how are you" in query:
+            speak("I am fine Thank you for checking on me")       
 
 
         elif 'exit' in query:
