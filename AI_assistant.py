@@ -124,7 +124,7 @@ if __name__== "__main__":
             speak("I am your virtual assistant created by Ayush Narayan") 
 
         elif "camera" in query or "take a photo" in query:
-            ec.capture(0, "Jarvis Camera ", "img.jpg") 
+            ec.capture(0, "Ayush Camera ", "img.jpg") 
 
 
         elif "how are you" in query:
